@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Mercado Livre</string>
+
+    <!-- Primeiro Layout -->
+    <string name="texto_primeiro">O que está esperando?</string>
+    <string name="texto_segundo">É grátis</string>
+    <string name="texto_botao1">Cadastrar-me com meu e-mail</string>
+    <string name="texto_botao2">Já tenho conta</string>
+
+    <!-- Segundo Layout -->
+    <string name="segundo_primeiro">Precisamos de alguns</string>
+    <string name="segundo_segundo">dados para criar sua conta</string>
+    <string name="Seu_email">Seu e-mail</string>
+    <string name="Sua_senha">Sua senha</string>
+    <string name="botao">Criar conta</string>
+
+    <!-- Terceira Layout -->
+    <string name="entrar">Entrar</string>
+
+</resources>
