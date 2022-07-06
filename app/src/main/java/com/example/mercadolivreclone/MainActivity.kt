@@ -10,6 +10,7 @@ import com.google.firebase.ktx.Firebase
 
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -18,10 +19,9 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        val autenticacao = Firebase.auth
-        val usuarioAtual = autenticacao.currentUser
-        if( usuarioAtual != null ){
-
+        val authentication = Firebase.auth
+        val ActualUser = authentication.currentUser
+        if( ActualUser != null ){
             finish()
             startActivity(
                 Intent(
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun entrar(view: View){
+    fun toResgister(view: View){
         startActivity(
             Intent(
                 this,
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
-    fun logar(view: View){
+    fun toLogin(view: View){
         startActivity(
             Intent(
                 this,

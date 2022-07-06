@@ -6,31 +6,34 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import com.example.mercadolivreclone.databinding.ActivityCadastroBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
 
+    lateinit var binding: ActivityCadastroBinding
+
     lateinit var editEmail: EditText
     lateinit var editSenha: EditText
-    lateinit var autenticacao: FirebaseAuth
+    lateinit var authentication: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        inicializaComponentesInterface()
+        initializateComponentesInterface()
     }
 
-    fun inicializaComponentesInterface() {
-        editEmail = findViewById(R.id.edit_emailLogar)
-        editSenha = findViewById(R.id.edit_senhaLogar)
-        autenticacao = Firebase.auth
+    fun initializateComponentesInterface() {
+
+        editEmail = findViewById(R.id.tv_email)
+        editSenha = findViewById(R.id.tv_password)
+        authentication = Firebase.auth
     }
 
-    fun validarCampos(): Boolean{
-
+    fun validateFields(): Boolean{
         if( editEmail.text.isNotEmpty() ){
             if( editSenha.text.isNotEmpty() ){
                 return true
@@ -39,13 +42,13 @@ class LoginActivity : AppCompatActivity() {
         return false
     }
 
-    fun entrar(view: View){
+    fun login(view: View){
 
         val email = editEmail.text.toString()
         val senha = editSenha.text.toString()
 
-        if ( validarCampos() ){
-            autenticacao.signInWithEmailAndPassword(
+        if ( validateFields() ){
+            authentication.signInWithEmailAndPassword(
                 email, senha
             ).addOnCompleteListener {
                 if( it.isSuccessful ){
@@ -73,5 +76,4 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-
 }
